@@ -330,7 +330,7 @@ void EstGS(J, method, summary, plot, xopt)
 	  stata("qui svmat perf5")
 	  stata("qui svmat perf6")
 	  stata("qui svmat perf7")
-	  stata(`"twoway (line perf15 perf11, color(black)) (line perf25 perf21, color(blue)) (line perf35 perf31, color(red)) (line perf45 perf41, color(green)) (line perf55 perf51, color(yellow)) (line perf65 perf61, color(orange)) (line perf75 perf71, color(purple)), xtitle({&pi}) ytitle({it:Bias}(hat({&pi})|{&pi})) legend(lab(1 "Bias-adjusted") lab(2 "Bias-subtracted") lab(3 "Conditional") lab(4 "Naive") lab(5 "MUE") lab(6 "UMVCUE") lab(6 "UMVUE"))"'+ xopt)
+	  stata(`"twoway (line perf15 perf11, color(black)) (line perf25 perf21, color(blue)) (line perf35 perf31, color(red)) (line perf45 perf41, color(green)) (line perf55 perf51, color(yellow)) (line perf65 perf61, color(orange)) (line perf75 perf71, color(purple)), xtitle({&pi}) ytitle({it:Bias}(hat({&pi})|{&pi})) legend(lab(1 "Bias-adjusted") lab(2 "Bias-subtracted") lab(3 "Conditional") lab(4 "Naive") lab(5 "MUE") lab(6 "UMVCUE") lab(7 "UMVUE"))"'+ xopt)
     }
   }
   else if (plot == "rmse") {
@@ -347,6 +347,7 @@ void EstGS(J, method, summary, plot, xopt)
 	  perf5 = select(perf, perf[, 2] :== 5)
 	  perf6 = select(perf, perf[, 2] :== 6)
 	  perf7 = select(perf, perf[, 2] :== 7)
+	  perf7
       st_matrix("perf1", perf1)
       st_matrix("perf2", perf2)
       st_matrix("perf3", perf3)
